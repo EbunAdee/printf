@@ -102,7 +102,7 @@ int write_num(int idx, char bff[], int flags, int width, int precision,
 int write_pointer(char buffer[], int idx, int len,
 	int width, int flags, char pad, char another_c, int pad_strt);
 
-int write_unsigned(int is_neg, int idx,
+int write_unsignd(int is_neg, int idx,
 char buffer[],
 	int flags, int width, int precision, int size);
 
@@ -112,6 +112,6 @@ int apend_hexa_cod(char, char[], int);
 int is_a_digit(char);
 
 long int convert_number_size(long int num, int size);
-long int convert_size_unsigned(unsigned long int num, int size);
+long int convert_size_unsignd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
