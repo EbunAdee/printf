@@ -19,21 +19,21 @@ int handle_print_type(const char *frmt, int *idx, va_list list, char buffer[],
 	frmt_t frmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_module},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
-		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
-		{'X', print_upper_hexa}, {'p', print_pointer}, {'S', print_non_printable},
-		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
-	};
-	for (a = 0; frmt_types[i].frmt != '\0'; a++)
+		{'u', print_unsigned}, {'o', print_octa}, {'x', print_hexadecimal},
+		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
+		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}};
+
+	for (a = 0; frmt_types[a].frmt != '\0'; a++)
 		if (frmt[*idx] == frmt_types[a].frmt)
-			return (frmt_types[a].fn(list, buffer, flags, width, precision, size));
+			return (frmt_types[a].fcn(list, buffer, flags, width, precision, size));
 
 	if (frmt_types[a].frmt == '\0')
 	{
 		if (frmt[*idx] == '\0')
 			return (-1);
-		unknw_len += write(1, "%%", 1);
+		unknwlen += write(1, "%%", 1);
 		if (frmt[*idx - 1] == ' ')
-			unknw_len += write(1, " ", 1);
+			unknwlen += write(1, " ", 1);
 		else if (width)
 		{
 			--(*idx);
@@ -43,8 +43,8 @@ int handle_print_type(const char *frmt, int *idx, va_list list, char buffer[],
 				--(*idx);
 			return (1);
 		}
-		unknw_len += write(1, &frmt[*idx], 1);
-		return (unknw_len);
+		unknwlen += write(1, &frmt[*idx], 1);
+		return (unknwlen);
 	}
 	return (printed_chars);
 }
