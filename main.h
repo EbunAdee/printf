@@ -40,7 +40,7 @@ struct frmt
 typedef struct frmt frmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *frmt, int *a,
+int handle_print_type(const char *frmt, int *a,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /********************* FUNCTIONS *********************/
