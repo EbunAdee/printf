@@ -39,7 +39,7 @@ int print_unsigned_num(va_list types, char buffer[],
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
 /**
- * print_octal - Prints an unsigned number in octal notation
+ * print_octa - Prints an unsigned number in octal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -161,4 +161,3 @@ int print_hexa(va_list types, char map_it[], char buffer[],
 
 	return (write_unsignd(0, a, buffer, flags, width, precision, size));
 }
-
