@@ -36,7 +36,7 @@ int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int len = 0, a;
-	char *str = va_arg(types, char *);
+	char *strg = va_arg(types, char *);
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -61,7 +61,7 @@ int print_string(va_list types, char buffer[],
 		if (flags & F_SUB)
 		{
 			write(1, &strg[0], len);
-			for (i = width - len; i > 0; a--)
+			for (a = width - len; a > 0; a--)
 				write(1, " ", 1);
 			return (width);
 		}
@@ -76,6 +76,7 @@ int print_string(va_list types, char buffer[],
 
 	return (write(1, strg, len));
 }
+
 /************************* PRINT PERCENT SIGN *************************/
 /**
  * print_percent - Prints a percent sign
@@ -188,4 +189,3 @@ int print_binary(va_list types, char buffer[],
 	}
 	return (counter);
 }
-

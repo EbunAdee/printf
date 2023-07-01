@@ -24,8 +24,9 @@ int handle_write_char(char c, char buffer[],
 	UNUSED(size);
 
 	if (flags & F_ZERO)
+	{
 		pad = '0';
-
+	}
 	buffer[a++] = c;
 	buffer[a] = '\0';
 
@@ -36,13 +37,16 @@ int handle_write_char(char c, char buffer[],
 			buffer[BUFF_SIZE - a - 2] = pad;
 
 		if (flags & F_SUB)
+		{
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFF_SIZE - a - 1], width - 1));
+		}
 		else
+		{
 			return (write(1, &buffer[BUFF_SIZE - a - 1], width - 1) +
 					write(1, &buffer[0], 1));
+		}
 	}
-
 	return (write(1, &buffer[0], 1));
 }
 
@@ -155,7 +159,7 @@ int write_unsigned(int is_neg, int idx,
 	char buffer[],
 	int flags, int width, int precision, int size)
 {
-	/* The number is stored at the bufer's right and starts at position i */
+	/* The number is stored at the bufer's right and starts at position a */
 	int len = BUFF_SIZE - idx - 1, a = 0;
 	char pad = ' ';
 
@@ -186,7 +190,7 @@ int write_unsigned(int is_neg, int idx,
 
 		if (flags & F_SUB) /* Asign extra char to left of buffer [buffer>pad]*/
 		{
-			return (write(1, &buffer[idx], len) + write(1, &buffer[0], i));
+			return (write(1, &buffer[idx], len) + write(1, &buffer[0], a));
 		}
 		else /* Asign extra char to left of padding [pad>buffer]*/
 		{
@@ -242,7 +246,9 @@ int write_pointer(char buffer[], int idx, int len,
 				buffer[--pad_strt] = another_c;
 			buffer[1] = '0';
 			buffer[2] = 'x';
-			return (write(1, &buffer[pad_strt], i - pad_strt) +
+			if (another_c)
+				buffer[--idx] = another_c;
+			return (write(1, &buffer[pad_strt], a - pad_strt) +
 				write(1, &buffer[idx], len - (1 - pad_strt) - 2));
 		}
 	}
