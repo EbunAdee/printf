@@ -16,7 +16,7 @@ int _printable(char c)
 
 /**
 <<<<<<< HEAD
- * append_hexa_code - Append ascci in hexadecimal code to buffer
+ * append_hexa_cod - Append ascci in hexadecimal code to buffer
 =======
  * apend_hexa_cod - Append ascci in hexadecimal code to buffer
 >>>>>>> 7b61bb70b60b898b2c13edc4e5459074d372c71c
