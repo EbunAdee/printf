@@ -97,12 +97,11 @@ int handle_write_char(char c, char buffer[],
 		int flags, int width, int precision, int size);
 int write_number(int is_positive, int idx, char buffer[],
 		int flags, int width, int precision, int size);
-int write_num(int idx, char bff[], int flags, 
-		int width, int precision,int len, char pad, char another_c);
+int write_num(int idx, char bff[], int flags,
+		int width, int precision, int len, char pad, char another_c);
 int write_pointer(char buffer[], int idx, int len,
 		int width, int flags, char pad, char another_c, int pad_strt);
-
-int write_unsignd(int is_neg, int idx,char buffer[],
+int write_unsignd(int is_neg, int idx, char buffer[],
 		int flags, int width, int precision, int size);
 
 /****************** UTILS ******************/
