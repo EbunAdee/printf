@@ -41,7 +41,7 @@ int print_pointer(va_list types, char buffer[],
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_SUB))
-		padd = '0';
+		pad = '0';
 	if (flags & F_PLUS)
 		another_c = '+', len++;
 	else if (flags & F_SPACE)
@@ -49,7 +49,7 @@ int print_pointer(va_list types, char buffer[],
 
 	idx++;
 
-	/return (write(1, &buffer[a], BUFF_SIZE - a - 1));/
+	return (write(1, &buffer[a], BUFF_SIZE - a - 1));/
 	return (write_pointer(buffer, ind, len,
 		width, flags, pad, another_c, pad_strt));
 }
