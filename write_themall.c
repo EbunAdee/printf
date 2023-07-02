@@ -144,7 +144,7 @@ int write_num(int idx, char buffer[],
 }
 
 /**
- * write_unsigned - Writes an unsigned number
+ * write_unsignd - Writes an unsigned number
  * @is_neg: Number indicating if the num is negative
  * @idx: Index at which the number starts in the buffer
  * @buffer: Array of chars
@@ -155,7 +155,7 @@ int write_num(int idx, char buffer[],
  *
  * Return: Number of written chars.
  */
-int write_unsigned(int is_neg, int idx,
+int write_unsignd(int is_neg, int idx,
 	char buffer[],
 	int flags, int width, int precision, int size)
 {
