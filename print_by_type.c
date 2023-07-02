@@ -18,7 +18,7 @@ int handle_print_type(const char *frmt, int *idx, va_list list, char buffer[],
 	int a, unknwlen = 0, printed_chars = -1;
 	frmt_t frmt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary},{'u', print_unsigned},
+		{'i', print_int}, {'d', print_int}, {'b', print_binary},{'u', print_unsigned_num},
 		{'o', print_octa}, {'x', print_hexadecimal},{'X', print_hexa_upper},
 		{'p', print_pointer},{'S', print_non_printable},{'r', print_reverse},
 		{'R', print_rot13string},{'\0', NULL}
