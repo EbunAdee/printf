@@ -49,7 +49,7 @@ int print_pointer(va_list types, char buffer[],
 
 	idx++;
 
-	return (write(1, &buffer[a], BUFF_SIZE - a - 1));/
+	/*return (write(1, &buffer[a], BUFF_SIZE - a - 1));*/
 	return (write_pointer(buffer, ind, len,
 		width, flags, pad, another_c, pad_strt));
 }
